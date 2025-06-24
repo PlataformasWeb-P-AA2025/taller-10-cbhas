@@ -1,0 +1,26 @@
+<h2>Crear nueva parroquia</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <label>Nombre:</label><br />
+  <input type="text" name="nombre" required><br /><br />
+
+  <label>Ubicación:</label><br />
+  <select name="ubicacion" required>
+    <option value="Norte">Norte</option>
+    <option value="Sur">Sur</option>
+    <option value="Este">Este</option>
+    <option value="Oeste">Oeste</option>
+  </select><br /><br />
+
+  <label>Tipo:</label><br />
+  <select name="tipo" required>
+    <option value="Urbana">Urbana</option>
+    <option value="Rural">Rural</option>
+  </select><br /><br />
+
+  <button type="submit">Crear</button>
+</form>
+
+<br />
+[<a href="{% url 'parroquias_barrios' %}">Volver al listado</a>]

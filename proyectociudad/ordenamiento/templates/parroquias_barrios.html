@@ -1,0 +1,23 @@
+<h2>Listado de Parroquias y sus Barrios</h2>
+
+<h3>Número de parroquias: {{ numero_parroquias }}</h3>
+
+<ul>
+  {% for p in parroquias %}
+    <li>
+      <strong>{{ p.nombre }}</strong> - {{ p.ubicacion }} - {{ p.tipo }}
+      <ul>
+        {% for b in p.barrios.all %}
+          <li>{{ b.nombre }} — {{ b.numero_viviendas }} viviendas, {{ b.numero_parques }} parques, {{ b.numero_edificios_residenciales }} edificios</li>
+        {% empty %}
+          <li><em>No hay barrios registrados.</em></li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>
+
+<br />
+[<a href="{% url 'crear_parroquia' %}">Agregar parroquia</a>] |
+[<a href="{% url 'crear_barrio' %}">Agregar barrio</a>] |
+[<a href="{% url 'barrios' %}">Ver solo barrios</a>]
