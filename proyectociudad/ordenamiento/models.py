@@ -24,7 +24,7 @@ class Parroquia(models.Model):
 class Barrio(models.Model):
     nombre = models.CharField(max_length=100, unique=True)
     numero_viviendas = models.PositiveIntegerField()
-    numero_parques = models.IntegerField([(i, str(i)) for i in range(1, 7)])
+    numero_parques = models.IntegerField(choices=[(i, str(i)) for i in range(1, 7)])
     numero_edificios_residenciales = models.PositiveIntegerField(default=0)
     parroquia = models.ForeignKey(Parroquia, on_delete=models.CASCADE, related_name='barrios')
 
